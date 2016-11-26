@@ -58,13 +58,6 @@
 					<BUTTON layout="125,265,50,30" text="닫기" onClick="mapWebView.clear; detailMap.visible=false" />
 				</WINDOW>
 			</WINDOW>
-
-			<WINDOW id="leftMenuOverlay1" layout="0,0,71,460" visible="invisible" />
-			<WINDOW id="leftMenuOverlay2" layout="70,0,71,460" visible="invisible" />
-
-			<WINDOW id="rightArea" layout="140,0,320,460" defaultImg="#E5E5E5" onClick="'none'">
-				<CONTAINER id="containerArea" layout="0,0,320,460" src="webview.xml"/>
-			</WINDOW>
 			
 			<LABEL layout="300,20" text="자료제공 : 국립중앙의료원" fontSize="10" textAlign="center|right"/>
 		</WINDOW>
