@@ -14,6 +14,6 @@
 		</WINDOW>
 	</UILAYOUT>
 
-	<CMD cmd="animation.show('intro', 'fade', 'easeIn3', 2000, '')" />
-	<CMD cmd="animation.hide('splashScreen', 'fade', '', 1000, '')" delay="5000"/>
+	<CMD cmd="animation.show('intro', 'fade', 'easeIn3', 1350, '')" />
+	<CMD cmd="animation.hide('splashScreen', 'fade', '', 8100, '')" delay="5000"/>
 </MOML>

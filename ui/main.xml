@@ -15,8 +15,8 @@
 		<WINDOW layout="0,0,320,480" img="white" align="linear:vertical" padding="10,20,10,0">
 			<WINDOW align="linear:subCenter">
 					<IMAGE layout="30,30" defaultImg="/res/logo.png" />
-					<LABEL layout="120,30" text="국립중앙의료원" fontStyle="bold" fontSize="12" textAlign="vCenter"/>
-					<LABEL layout="200,30" text="가까운 병원 검색" fontSize="12" textAlign="center|right"/>
+					<LABEL layout="120,30" text="국립중앙의료원" fontSize="12" textAlign="vCenter"/>
+					<LABEL layout="120,30" text="가까운 병원 검색" fontSize="12" textAlign="center|right"/>
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
@@ -57,6 +57,13 @@
 					<WEBVIEW id="mapWebView" layout="10,30,280,230" controls="none"/>
 					<BUTTON layout="125,265,50,30" text="닫기" onClick="mapWebView.clear; detailMap.visible=false" />
 				</WINDOW>
+			</WINDOW>
+
+			<WINDOW id="leftMenuOverlay1" layout="0,0,71,460" visible="invisible" />
+			<WINDOW id="leftMenuOverlay2" layout="70,0,71,460" visible="invisible" />
+
+			<WINDOW id="rightArea" layout="140,0,320,460" defaultImg="#E5E5E5" onClick="'none'">
+				<CONTAINER id="containerArea" layout="0,0,320,460" src="webview.xml"/>
 			</WINDOW>
 			
 			<LABEL layout="300,20" text="자료제공 : 국립중앙의료원" fontSize="10" textAlign="center|right"/>
