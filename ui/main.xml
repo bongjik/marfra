@@ -20,17 +20,19 @@
 			</WINDOW>
 
 			<WINDOW layout="300,60" align="relative">
-				<LABEL layout="0,0,40,30" text="진료과목 : " textAlign="center"/>
+
+				<LABEL layout="0,30,40,30" text="병원분류 :" textAlign="center" fontSize="12"/> 
+  				<SPINNER id="province" layout="40,30,180,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
+
+				<LABEL layout="0,0,40,30" text="진료과목 : " textAlign="center" fontSize="12"/>
 				<SPINNER id="asset" layout="40,0,180,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
 
-				<LABEL layout="0,30,40,30" text="지역 :" textAlign="center" /> 
-  				<SPINNER id="province" layout="40,30,180,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
-  				<BUTTON layout="230,10,60,40" text="검색"/> 
+  				<BUTTON layout="230,10,40,30" text="조건검색" fontSize="12"/> 
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
 				<BUTTON layout="120,30" text="현 위치 확인" onClick="function.findLocation" />
-				<BUTTON layout="60,30" text="검색" onClick="function.search" />
+				<BUTTON layout="60,30" text="통합 검색" onClick="function.search" />
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
@@ -45,8 +47,8 @@
 				<LABEL id="address" layout="200,30" fontSize="10" textAlign="vCenter" textColor="gray"/>
 			</WINDOW>
 
-			<WINDOW layout="300,300" align="relative">
-				<LIST2 id="hospitalList" layout="0,0,300,300" dataList="//item" img="lightsteelblue" divider="#808080">
+			<WINDOW layout="300,200" align="relative">
+				<LIST2 id="hospitalList" layout="0,0,300,200" dataList="//item" img="lightsteelblue" divider="#808080">
 					<LISTLAYOUT>
 						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
 							<LABEL id="divName" layout="5,3,50,10" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
