@@ -8,12 +8,7 @@
  --> 
 <MOML version="1.1.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.applusform.com/xsd/moml_ui_1.1.8.xsd">
 	<THEMES>
-		<THEME id="text" fontSize="12" textColor="#6186a7"/>
-		<THEME element="LABEL" parent="text"/>
-		<THEME element="BUTTON" parent="text" img="#4d91be" pressedImg="#7ebbe4" textColor="white"/>
-		<THEME element="STYLEBUTTON" parent="text" shape="roundRect(5)" img="#4d91be" pressedImg="#7ebbe4" textColor="white" margin="2"/>
-		<THEME element="EDIT" parent="text" img="#ffffff" border="#00000000" padding="4,0,0,0" layout="parent.width - 2,parent.height-2"  textAlign="vCenter"/>
-		<THEME id="editBorder" padding="1" img="#d9efff" />
+		<THEME element="BUTTON" textColor="#ffffff" defaultImg="#0080ff" pressedImg="#008000" margin="1"/>
 	</THEMES>
 
 	<UILAYOUT portrait="320,480" landscape="320,480">
@@ -90,7 +85,6 @@
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
 		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
 		<CMD cmd="hospitalList.dataSource = xml" />
-		
 	</FUNCTION>
 	
 	// HPID를 통한 자료요청 부분
@@ -100,10 +94,10 @@
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?ServiceKey=' + userVariable.serviceKey"/>
 		<CMD cmd="url = url + '&amp;HPID=' + A1104353"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
-		<CMD cmd="xml2 = file.read(url)" />
-		<RETURN condition="not string.equals(xpath.evaluateEx(xml2, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml2, '//resultMsg/text()'))"/>
-		<RETURN condition="xpath.evaluateEx(xml2, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
-		<CMD cmd="hospitalList.dataSource = xml2" />
+		<CMD cmd="xml = file.read(url)" />
+		<RETURN condition="not string.equals(xpath.evaluateEx(xml2, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
+		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
+		<CMD cmd="hospitalList.dataSource = xml" />
 	</FUNCTION>
 
 	// GPS로 현 위치 받아오는 부분
