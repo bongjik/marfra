@@ -21,22 +21,20 @@
 
 			<WINDOW align="linear:subCenter">
 				<IMAGE layout="0,0,30,30" defaultImg="/res/logo.png" />
-				<LABEL layout="290,30" text="가까운 병원 검색" fontSize="15" textAlign="center|right"/>
+				<LABEL layout="35,0,290,30" text="가까운 병원 검색" fontSize="15" textAlign="center|right"/>
 			</WINDOW>
 
 			<WINDOW layout="300,60" align="relative">
-				<LABEL layout="0,0,40,30" text="진료과목 : " textAlign="center" fontSize="16"/>
-				<SPINNER id="asset" layout="40,0,180,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
-				<LABEL layout="0,30,40,30" text="병원분류 :" textAlign="center" fontSize="16"/> 
-  				<SPINNER id="province" layout="40,30,180,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
+				<LABEL layout="0,0,40,30" text="진료과목 : " textAlign="center" fontSize="20"/>
+				<SPINNER id="asset" layout="40,0,100,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
+				<LABEL layout="0,30,40,30" text="병원분류 :" textAlign="center" fontSize="20"/> 
+  				<SPINNER id="province" layout="40,30,100,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
-				<BUTTON layout="120,30" text="현재 위치 확인" onClick="function.findLocation" />
-				<LABEL layout="5,30" text=""/>
-				<BUTTON layout="60,30" text="통합 검색" onClick="function.search" />
-				<LABEL layout="5,30" text=""/>
-				<BUTTON layout="60,30" text="조건 검색" onClick="function.search2" />
+				<BUTTON layout="0,0,100,30" text="현재 위치 확인" onClick="function.findLocation" />
+				<BUTTON layout="105,0,60,30" text="통합 검색" onClick="function.search" />
+				<BUTTON layout="170,0,60,30" text="조건 검색" onClick="function.search2" />
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter"  img="white">
