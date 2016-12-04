@@ -27,7 +27,7 @@
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
-				<BUTTON layout="120,30" text="현 위치 확인" onClick="function.findLocation" />
+				<BUTTON layout="120,30" text="현재 위치 확인" onClick="function.findLocation" />
 				<BUTTON layout="60,30" text="통합 검색" onClick="function.search" />
 				<BUTTON layout="60,30" text="조건 검색" onClick="function.search2" />
 			</WINDOW>
