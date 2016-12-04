@@ -8,12 +8,7 @@
  --> 
 <MOML version="1.1.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.applusform.com/xsd/moml_ui_1.1.8.xsd">
 	<THEMES>
-		<THEME id="text" fontSize="12" textColor="#6186a7"/>
-		<THEME element="LABEL" parent="text"/>
-		<THEME element="BUTTON" parent="text" img="#4d91be" pressedImg="#7ebbe4" textColor="white"/>
-		<THEME element="STYLEBUTTON" parent="text" shape="roundRect(5)" img="#4d91be" pressedImg="#7ebbe4" textColor="white" margin="2"/>
-		<THEME element="EDIT" parent="text" img="#ffffff" border="#00000000" padding="4,0,0,0" layout="parent.width - 2,parent.height-2"  textAlign="vCenter"/>
-		<THEME id="editBorder" padding="1" img="#d9efff" />
+		<THEME element="BUTTON" textColor="#ffffff" defaultImg="#0080ff" pressedImg="#008000" margin="1"/>
 	</THEMES>
 
 	<UILAYOUT portrait="320,480" landscape="320,480">
