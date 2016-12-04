@@ -16,7 +16,18 @@
 			<WINDOW align="linear:subCenter">
 					<IMAGE layout="30,30" defaultImg="/res/logo.png" />
 					<LABEL layout="120,30" text="국립중앙의료원" fontSize="12" textAlign="vCenter"/>
-					<LABEL layout="120,30" text="가까운 병원 검색" fontSize="15" textAlign="center|right"/>
+					<LABEL layout="120,30" text="가까운 병원 검색" fontSize="15" textAlign="center|left"/>
+			</WINDOW>
+
+			<WINDOW align="linear:subCenter">
+				<LABEL layout="0,0,40,30" text="진료과목 : " textAlign="center"/>
+				<SPINNER id="asset" layout="40,0,180,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
+
+				<LABEL layout="0,30,40,30" text="지역 :" textAlign="center" /> 
+  				<SPINNER id="province" layout="40,30,180,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
+
+  				<BUTTON layout="230,10,60,40" text="검색"/> 
+
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
@@ -66,7 +77,7 @@
 	//////
 
 	// GPS를 통한 자료요청 부분
-	<CMD cmd="userVariable.serviceKey = 'drV%2Bmn6Ib4%2B7rAfkoQmwCi%2FqKis8lwT34J9NxiqX9kgBePA8oONfX6%2FZjFN%2BNOt9htJ9RqXacrOAfrrCIzdmLw%3D%3D'" />
+	<CMD cmd="userVariable.serviceKey = 'XAQRkAc4BBj5RWTWfdEX5Oc5ry0o4j74tmxD5R4HhJoegNLrNTlRZl6%2BCW%2BX%2BC28DAwBYq73UvcNcdB6n591bg%3D%3D'" />
 	<FUNCTION id="search">
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlMdcncLcinfoInqire?ServiceKey=' + userVariable.serviceKey"/>
