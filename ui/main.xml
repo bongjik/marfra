@@ -18,10 +18,10 @@
 
 	<UILAYOUT portrait="320,480" landscape="320,480">
 		<WINDOW layout="0,0,320,480" img="white" align="linear:vertical" padding="10,20,10,0">
-			
+
 			<WINDOW align="linear:subCenter">
 				<IMAGE layout="0,0,30,30" defaultImg="/res/logo.png" />
-				<LABEL layout="120,30" text="가까운 병원 검색" fontSize="15" textAlign="center|right"/>
+				<LABEL layout="290,30" text="가까운 병원 검색" fontSize="15" textAlign="center|right"/>
 			</WINDOW>
 
 			<WINDOW layout="300,60" align="relative">
@@ -33,7 +33,9 @@
 
 			<WINDOW align="linear:subCenter">
 				<BUTTON layout="120,30" text="현재 위치 확인" onClick="function.findLocation" />
+				<LABEL layout="5,30" text=""/>
 				<BUTTON layout="60,30" text="통합 검색" onClick="function.search" />
+				<LABEL layout="5,30" text=""/>
 				<BUTTON layout="60,30" text="조건 검색" onClick="function.search2" />
 			</WINDOW>
 
