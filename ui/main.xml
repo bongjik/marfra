@@ -19,15 +19,13 @@
 					<LABEL layout="120,30" text="가까운 병원 검색" fontSize="15" textAlign="center|left"/>
 			</WINDOW>
 
-			<WINDOW align="linear:subCenter">
+			<WINDOW layout="300,60" align="relative">
 				<LABEL layout="0,0,40,30" text="진료과목 : " textAlign="center"/>
 				<SPINNER id="asset" layout="40,0,180,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
 
 				<LABEL layout="0,30,40,30" text="지역 :" textAlign="center" /> 
   				<SPINNER id="province" layout="40,30,180,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
-
   				<BUTTON layout="230,10,60,40" text="검색"/> 
-
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
