@@ -19,20 +19,18 @@
 					<LABEL layout="120,30" text="가까운 병원 검색" fontSize="15" textAlign="center|left"/>
 			</WINDOW>
 
-			<WINDOW layout="300,60" align="relative">
-
-				<LABEL layout="0,30,40,30" text="병원분류 :" textAlign="center" fontSize="12"/> 
+			<WINDOW layout="300,60" align="center:center">
+				<LABEL layout="0,30,40,30" text="병원분류 :" textAlign="center" fontSize="14"/> 
+				<EDIT id = HPID="A1116273">
   				<SPINNER id="province" layout="40,30,180,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
-
-				<LABEL layout="0,0,40,30" text="진료과목 : " textAlign="center" fontSize="12"/>
+				<LABEL layout="0,0,40,30" text="진료과목 : " textAlign="center" fontSize="14"/>
 				<SPINNER id="asset" layout="40,0,180,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
-
-  				<BUTTON layout="230,10,40,30" text="조건검색" fontSize="12"/> 
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
 				<BUTTON layout="120,30" text="현 위치 확인" onClick="function.findLocation" />
 				<BUTTON layout="60,30" text="통합 검색" onClick="function.search" />
+				<BUTTON layout="60,30" text="조건 검색" onClick="function.search2" />
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
@@ -47,8 +45,8 @@
 				<LABEL id="address" layout="200,30" fontSize="10" textAlign="vCenter" textColor="gray"/>
 			</WINDOW>
 
-			<WINDOW layout="300,200" align="relative">
-				<LIST2 id="hospitalList" layout="0,0,300,200" dataList="//item" img="lightsteelblue" divider="#808080">
+			<WINDOW layout="300,240" align="relative">
+				<LIST2 id="hospitalList" layout="0,0,300,240" dataList="//item" img="lightsteelblue" divider="#808080">
 					<LISTLAYOUT>
 						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
 							<LABEL id="divName" layout="5,3,50,10" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
@@ -90,6 +88,18 @@
 		<CMD cmd="hospitalList.dataSource = xml" />
 	</FUNCTION>
 	
+	// HPID를 통한 자료요청 부분
+	<CMD cmd="userVariable.serviceKey = 'XAQRkAc4BBj5RWTWfdEX5Oc5ry0o4j74tmxD5R4HhJoegNLrNTlRZl6%2BCW%2BX%2BC28DAwBYq73UvcNcdB6n591bg%3D%3D'" />
+	<FUNCTION id="search2">
+		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
+		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?ServiceKey=' + userVariable.serviceKey"/>
+		<CMD cmd="url = url + '&amp;HPID=' + hpid.text"/>
+		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
+		<CMD cmd="xml = file.read(url)" />
+		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
+		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
+		<CMD cmd="hospitalList.dataSource = xml" />
+	</FUNCTION>
 
 	// GPS로 현 위치 받아오는 부분
 	<FUNCTION id="findLocation">
