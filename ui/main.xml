@@ -19,7 +19,7 @@
 					<LABEL layout="120,30" text="가까운 병원 검색" fontSize="15" textAlign="center|left"/>
 			</WINDOW>
 
-			<WINDOW layout="300,60" align="center:center">
+			<WINDOW layout="300,60" align="linear:subCenter">
 				<LABEL layout="0,30,40,30" text="병원분류 :" textAlign="center" fontSize="14"/> 
   				<SPINNER id="province" layout="40,30,180,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
 				<LABEL layout="0,0,40,30" text="진료과목 : " textAlign="center" fontSize="14"/>
