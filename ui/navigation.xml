@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<MOML version="1.0.0">
+		<UILAYOUT portrait="320,460" >
+			<LABEL layout="0,0,320,40" align="relative" text="Navigation Container" textAlign="center" fontColor="#00ff00" fontSize="20" defaultImg="img/top_bg.jpg">
+				<BUTTON layout="10,5,auto,30" text="BACK" textAlign="center" fontSize="25" defaultImg="img/re.jpg"/>
+			</LABEL>
+
+		<WINDOW layout="0,40,320,40" align="linear:wideside|center" defaultImg="#ffffff">
+			<BUTTON layout="130,30" text="page1" fontColor="#00ff00" defaultImg="/img/rbutton.jpg" onClick="mynavi.selectedItem='page1'"/>
+			<BUTTON layout="130,30" text="page2" fontColor="#00ff00" defaultImg="/img/rbutton.jpg" onClick="mynavi.selectedItem='page2'"/>
+		</WINDOW>
+
+		<NAVIGATIONCONTAINER id="mynavi" layout="0,80,320,380" selectedItem="page1" >
+			<VIEWITEM id="page1" src="page1.xml" transitionInEffect="fade">
+				<VIEWITEM id="page1_1" src="page1_1.xml" transitionInEffect="fade" onClick="action:back"/>
+			</VIEWITEM>
+			<VIEWITEM id="page2" src="page2.xml" transitionInEffect="fade">
+				<VIEWITEM id="page2_1" src="page1_1.xml" transitionInEffect="fade" onClick="action:back"/>
+			</VIEWITEM>
+		</NAVIGATIONCONTAINER>
+	</UILAYOUT>
+
+</MOML>

@@ -1,0 +1,6 @@
+<MOML version="1.0.0">
+<UILAYOUT portrait="640,810">
+<LABEL layout="0,0,640,810" text="PAGE 2" textAlign="center" fontSize="50"
+fontColor="#88AA88" defaultImg="#997777"/>
+</UILAYOUT>
+</MOML>
