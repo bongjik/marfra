@@ -13,6 +13,7 @@
 	</THEMES>
 
 	<UILAYOUT portrait="320,480" landscape="320,480">
+
 		<WINDOW layout="0,0,320,480" img="white" align="linear:vertical" padding="10,20,10,0">
 
 			<WINDOW align="linear:subCenter">
@@ -46,9 +47,8 @@
 			</WINDOW>
 
 			<WINDOW layout="300,240" align="relative">
-				
 				// datasource = hostpitalList
-				<LIST2 id="hospitalList" layout="0,0,300,240" dataList="//item" img="lightsteelblue" divider="#808080">
+				<LIST2 id="hospitalList" layout="0,0,300,120" dataList="//item" img="lightsteelblue" divider="#808080">
 					<LISTLAYOUT>
 						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
 							<LABEL id="divName" layout="5,3,50,15" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
@@ -73,6 +73,13 @@
 			
 			<LABEL layout="300,20" text="자료제공 : 국립중앙의료원" fontSize="10" textAlign="center|right"/>
 		</WINDOW>
+
+
+		<NAVIGATIONCONTAINER id="navi" layout="0,240,300,240" selectedItem="page1" >
+			<VIEWITEM id="page1" src="page1.xml" />
+			<VIEWITEM id="page2" src="page2.xml" />
+		</NAVIGATIONCONTAINER>
+
 	</UILAYOUT>
 
 	//////
