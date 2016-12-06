@@ -95,7 +95,7 @@
 
 	// GPS를 통한 자료요청 부분 (약국)
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
-	<FUNCTION id="search">
+	<FUNCTION id="search2">
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/ErmctInsttInfoInqireService/getParmacyLcinfoInqire?ServiceKey=' + userVariable.serviceKey"/>
 		<CMD cmd="url = url + '&amp;WGS84_LAT=' + latitude.text"/>
@@ -109,7 +109,7 @@
 	
 	// HPID를 통한 자료요청 부분
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
-	<FUNCTION id="search2(param1)">
+	<FUNCTION id="search3(param1)">
 		<CMD cmd="hpid.text=param1"/>
 		<RETURN condition="HPID.text==0" cmd="device.systemPopup('HPID를 확인하거나 직접 HPID를 입력하세요.')" />
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?ServiceKey=' + userVariable.serviceKey"/>
