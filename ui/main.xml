@@ -22,33 +22,33 @@
 			</WINDOW>
 
 			<WINDOW layout="300,60" align="linear:subCenter">
-				<LABEL layout="40,30" text="진료과목 : " textAlign="center" fontSize="20"/>
-				<SPINNER id="asset" layout="100,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
 				<LABEL layout="40,30" text="병원분류 :" textAlign="center" fontSize="20"/> 
   				<SPINNER id="province" layout="100,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
+				<LABEL layout="40,30" text="진료과목 : " textAlign="center" fontSize="20"/>
+				<SPINNER id="asset" layout="100,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
 			</WINDOW>
 
-			<WINDOW align="linear:subCenter">
+			<WINDOW layout="300 90" align="linear:subCenter">
 				<BUTTON layout="100,30" text="현재 위치 확인" onClick="function.findLocation" />
 				<BUTTON layout="60,30" text="통합 검색" onClick="function.search" />
 				<BUTTON layout="60,30" text="조건 검색" onClick="function.search2('A1100087')" />
 			</WINDOW>
 
-			<WINDOW align="linear:subCenter"  img="white">
+			<WINDOW layout="300,60" align="linear:subCenter"  img="white">
 				<LABEL layout="40,30" text="위도 : " textAlign="right|vCenter"/>
 				<EDIT id="latitude" layout="110,30" textAlign="vCenter" text="37.5467649"/>
 				<LABEL layout="40,30" text="경도 : " textAlign="right|vCenter"/>
 				<EDIT id="longitude" layout="110,30" textAlign="vCenter" text="127.0638224"/>
 			</WINDOW>
 
-			<WINDOW align="linear:subCenter">
+			<WINDOW layout="300,60" align="linear:subCenter">
 				<LABEL text="현 주소" layout="60,30" fontSize="10" textAlign="vCenter" textColor="gray"/>
 				<LABEL id="address" layout="200,30" fontSize="10" textAlign="vCenter" textColor="gray"/>
 			</WINDOW>
 
 			<WINDOW layout="300,240" align="relative">
 				// datasource = hostpitalList
-				<LIST2 id="hospitalList" layout="0,0,300,120" dataList="//item" img="lightsteelblue" divider="#808080">
+				<LIST2 id="hospitalList" layout="0,0,300,240" dataList="//item" img="lightsteelblue" divider="#808080">
 					<LISTLAYOUT>
 						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
 							<LABEL id="divName" layout="5,3,50,15" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
@@ -64,7 +64,7 @@
 					</LISTLAYOUT>
 				</LIST2>
 				
-				<WINDOW id="detailMap" layout="0,0,300,300" visible="invisible" defaultImg="lightsteelblue" onClick="ignore">
+				<WINDOW id="detailMap" layout="0,0,300,240" visible="invisible" defaultImg="lightsteelblue" onClick="ignore">
 					<LABEL id="mapTitle" layout="0,0,300,30" textAlign="center" fontSize="15" defaultImg="#e0e0ff"/>
 					<WEBVIEW id="mapWebView" layout="10,30,280,230" controls="none"/>
 					<BUTTON layout="125,265,50,30" text="닫기" onClick="mapWebView.clear; detailMap.visible=false" />
