@@ -17,8 +17,8 @@
 		<WINDOW layout="0,0,320,480" img="white" align="linear:vertical" padding="10,20,10,0">
 
 			<WINDOW align="linear:subCenter">
-				<IMAGE layout="0,0,30,30" defaultImg="/res/logo.png" />
-				<LABEL layout="0,0,120,30" text="가까운 병원 검색" fontSize="15" textAlign="center|right"/>
+				<IMAGE layout="30,30" defaultImg="/res/logo.png" />
+				<LABEL layout="120,30" text="가까운 병원 검색" fontSize="15" textAlign="center|right"/>
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
