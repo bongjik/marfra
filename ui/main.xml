@@ -64,11 +64,12 @@
 					</LISTLAYOUT>
 				</LIST2>
 				
-				<WINDOW id="detailMap" layout="0,0,300,240" visible="invisible" defaultImg="lightsteelblue" onClick="ignore">
+				<WINDOW id="detailMap" layout="0,0,300,300" visible="invisible" defaultImg="lightsteelblue" onClick="ignore">
 					<LABEL id="mapTitle" layout="0,0,300,30" textAlign="center" fontSize="15" defaultImg="#e0e0ff"/>
 					<WEBVIEW id="mapWebView" layout="10,30,280,230" controls="none"/>
 					<BUTTON layout="125,265,50,30" text="닫기" onClick="mapWebView.clear; detailMap.visible=false" />
 				</WINDOW>
+
 			</WINDOW>
 			
 			<LABEL layout="300,20" text="자료제공 : 국립중앙의료원" fontSize="10" textAlign="center|right"/>
