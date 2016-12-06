@@ -125,7 +125,7 @@
 	<FUNCTION id="search4">
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?serviceKey=' + userVariable.serviceKey"/>
 		<CMD cmd="url = url + '&amp;HPID + 'A1100087'"/>
-		<CMD cmd="url = url +  &amp;DUTY_INF=-&amp;DUTY_MAPIMG=-"/>
+		<CMD cmd="url = url + '&amp;DUTY_INF=-&amp;DUTY_MAPIMG=-"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
 		<CMD cmd="url = url + '&amp;pageSize=50&amp;startPage=1'"/>
 		<CMD cmd="xml = file.read(url)" />
