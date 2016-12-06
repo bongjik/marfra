@@ -89,11 +89,13 @@
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
 		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
 		<CMD cmd="hospitalList.dataSource = xml" />
+		<CMD cmd="search2.dataSource = xml">
 	</FUNCTION>
 	
 	// HPID를 통한 자료요청 부분
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
 	<FUNCTION id="search2">
+		<CMD cmd="HPID.text={xpath.evaluate('hpid/text()')}"/>
 		<RETURN condition="HPID.text == 0" cmd="device.systemPopup('HPID를 확인하거나 직접 HPID를 입력하세요.')" />
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?ServiceKey=' + userVariable.serviceKey"/>
 		<CMD cmd="url = url + '&amp;HPID=' + A1104353"/>
