@@ -23,8 +23,8 @@
 
 			<WINDOW align="linear:subCenter">
 				<BUTTON layout="100,30" text="현재 위치 확인" onClick="function.findLocation" />
-				<BUTTON layout="00,30" text="병원 검색" onClick="function.search" />
-				<BUTTON layout="00,30" text="약국 검색" onClick="function.search2" />
+				<BUTTON layout="70,30" text="병원 검색" onClick="function.search" />
+				<BUTTON layout="70,30" text="약국 검색" onClick="function.search2" />
 				<BUTTON layout="70,30" text="응급실 검색" onClick="function.search3" />
 			</WINDOW>
 
