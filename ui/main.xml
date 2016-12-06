@@ -23,15 +23,15 @@
 
 			<WINDOW align="linear:subCenter">
 				<LABEL layout="40,30" text="병원분류 :" textAlign="center" fontSize="20"/> 
-  				<SPINNER id="province" layout="120,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
+  				<SPINNER id="province" layout="110,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
 				<LABEL layout="40,30" text="진료과목 : " textAlign="center" fontSize="20"/>
-				<SPINNER id="asset" layout="120,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
+				<SPINNER id="asset" layout="110,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
 				<BUTTON layout="100,30" text="현재 위치 확인" onClick="function.findLocation" />
-				<BUTTON layout="60,30" text="통합 검색" onClick="function.search" />
-				<BUTTON layout="60,30" text="조건 검색" onClick="function.search2('A1100087')" />
+				<BUTTON layout="60,30" text="병원 검색" onClick="function.search" />
+				<BUTTON layout="60,30" text="약국 검색" onClick="function.search2" />
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter"  img="white">
@@ -79,7 +79,7 @@
 
 	//////
 
-	// GPS를 통한 자료요청 부분
+	// GPS를 통한 자료요청 부분 (병원)
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
 	<FUNCTION id="search">
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
@@ -93,6 +93,19 @@
 		<CMD cmd="hospitalList.dataSource = xml" />
 	</FUNCTION>
 
+	// GPS를 통한 자료요청 부분 (약국)
+	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
+	<FUNCTION id="search">
+		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
+		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/ErmctInsttInfoInqireService/getParmacyLcinfoInqire?ServiceKey=' + userVariable.serviceKey"/>
+		<CMD cmd="url = url + '&amp;WGS84_LAT=' + latitude.text"/>
+		<CMD cmd="url = url + '&amp;WGS84_LON=' + longitude.text"/>
+		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
+		<CMD cmd="xml = file.read(url)" />
+		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
+		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
+		<CMD cmd="hospitalList.dataSource = xml" />
+	</FUNCTION>
 	
 	// HPID를 통한 자료요청 부분
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
