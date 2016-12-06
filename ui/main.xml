@@ -128,11 +128,11 @@
 		<CMD cmd="url = url + '&amp;DUTY_INF=-&amp;DUTY_MAPIMG=-'"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
 		<CMD cmd="url = url + '&amp;pageSize=50&amp;startPage=1'"/>
-		<CMD cmd="xml = file.read(url)" />
-		<CMD cmd="device.systemPopup(xpath.evaluate(xml, '//dgidIdName/text()')" />
-		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
-		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
-		<CMD cmd="hospitalList.dataSource = xml" />
+		<CMD cmd="xml2 = file.read(url)" />
+		<CMD cmd="device.systemPopup(xpath.evaluate(xml2, '//dgidIdName/text()')" />
+		<RETURN condition="not string.equals(xpath.evaluateEx(xml2, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml2, '//resultMsg/text()'))"/>
+		<RETURN condition="xpath.evaluateEx(xml2, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
+		<CMD cmd="hospitalList2.dataSource = xml2" />
 	</FUNCTION>
 
 	// GPS로 현 위치 받아오는 부분
