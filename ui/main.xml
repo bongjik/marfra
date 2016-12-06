@@ -124,11 +124,12 @@
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
 	<FUNCTION id="search4">
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?serviceKey=' + userVariable.serviceKey"/>
-		<CMD cmd="url = url + '&amp;HPID' + 'A1100087'"/>
+		<CMD cmd="url = url + '&amp;HPID' + userVariable.hpid"/>
 		<CMD cmd="url = url + '&amp;DUTY_INF=-&amp;DUTY_MAPIMG=-'"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
 		<CMD cmd="url = url + '&amp;pageSize=50&amp;startPage=1'"/>
 		<CMD cmd="xml = file.read(url)" />
+		<CMD cmd="device.systemPopup(xpath.evaluate('dgidIdName/text()')" />
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml1, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
 		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
 		<CMD cmd="hospitalList.dataSource = xml" />
