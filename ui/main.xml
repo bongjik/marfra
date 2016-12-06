@@ -74,12 +74,6 @@
 			<LABEL layout="300,20" text="자료제공 : 국립중앙의료원" fontSize="10" textAlign="center|right"/>
 		</WINDOW>
 
-
-		<NAVIGATIONCONTAINER id="navi" layout="0,240,300,240" selectedItem="page1" >
-			<VIEWITEM id="page1" src="page1.xml" />
-			<VIEWITEM id="page2" src="page2.xml" />
-		</NAVIGATIONCONTAINER>
-
 	</UILAYOUT>
 
 	//////
