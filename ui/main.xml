@@ -51,7 +51,7 @@
 				// datasource = hostpitalList
 				<LIST2 id="hospitalList" layout="0,0,300,280" dataList="//item" img="lightsteelblue" divider="#808080">
 					<LISTLAYOUT>
-						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.search4(hpid.text)">
+						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.search4('A1100087')">
 							<LABEL id="divName" layout="5,3,50,15" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
 							<LABEL id="name" layout="55,3,160,15" text="{xpath.evaluate('dutyName/text()')}" textAlign="vCenter" fontSize="13" />
 							<LABEL id="hpid" layout="215,3,30,15" text="{xpath.evaluate('hpid/text()')}" textAlign="vCenter" fontSize="13" />
@@ -125,7 +125,7 @@
 	// HPID를 통한 자료요청 부분
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
 	<FUNCTION id="search4(param1)">
-		<RETURN condition="hpid.text==0" cmd="device.systemPopup('HPID를 확인하거나 직접 HPID를 입력하세요.')" />
+		<RETURN condition="hpid.text == 0" cmd="device.systemPopup('HPID를 확인하거나 직접 HPID를 입력하세요.')" />
 		<CMD cmd="hpid.text=param1"/>
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?ServiceKey=' + userVariable.serviceKey"/>
 		<CMD cmd="url = url + '&amp;HPID=' + hpid.text"/>
