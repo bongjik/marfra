@@ -23,8 +23,8 @@
 
 			<WINDOW align="linear:subCenter">
 				<BUTTON layout="100,30" text="현재 위치 확인" onClick="function.findLocation" />
-				<BUTTON layout="70,30" text="병원 검색" onClick="function.search" />
-				<BUTTON layout="70,30" text="약국 검색" onClick="function.search2" />
+				<BUTTON layout="60,30" text="병원 검색" onClick="function.search" />
+				<BUTTON layout="60,30" text="약국 검색" onClick="function.search2" />
 				<BUTTON layout="70,30" text="응급실 검색" onClick="function.search3" />
 			</WINDOW>
 
@@ -44,7 +44,7 @@
 				// datasource = hostpitalList
 				<LIST2 id="hospitalList" layout="0,0,300,280" dataList="//item" img="lightsteelblue" divider="#808080">
 					<LISTLAYOUT>
-						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.searchowMap">
+						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
 							<LABEL id="divName" layout="5,3,50,15" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
 							<LABEL id="name" layout="55,3,160,15" text="{xpath.evaluate('dutyName/text()')}" textAlign="vCenter" fontSize="13" />
 							<LABEL id="hpid" layout="215,3,30,15" text="{xpath.evaluate('hpid/text()')}" textAlign="vCenter" fontSize="13" />
