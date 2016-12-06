@@ -22,17 +22,10 @@
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
-				<LABEL layout="40,30" text="병원분류 :" textAlign="center" fontSize="20"/> 
-  				<SPINNER id="province" layout="110,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
-				<LABEL layout="40,30" text="진료과목 : " textAlign="center" fontSize="20"/>
-				<SPINNER id="asset" layout="110,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
-			</WINDOW>
-
-			<WINDOW align="linear:subCenter">
 				<BUTTON layout="100,30" text="현재 위치 확인" onClick="function.findLocation" />
-				<BUTTON layout="60,30" text="병원 검색" onClick="function.search" />
-				<BUTTON layout="60,30" text="약국 검색" onClick="function.search2" />
-				<BUTTON layout="75,30" text="응급실 검색" onClick="function.search3" />
+				<BUTTON layout="00,30" text="병원 검색" onClick="function.search" />
+				<BUTTON layout="00,30" text="약국 검색" onClick="function.search2" />
+				<BUTTON layout="70,30" text="응급실 검색" onClick="function.search3" />
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter"  img="white">
@@ -54,7 +47,7 @@
 						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.searchowMap">
 							<LABEL id="divName" layout="5,3,50,15" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
 							<LABEL id="name" layout="55,3,160,15" text="{xpath.evaluate('dutyName/text()')}" textAlign="vCenter" fontSize="13" />
-							<LABEL id="hpid" layout="215,3,30,15" text="{xpath.evaluate('hpid/text()')}" textAlign="vCenter" fontSize="13" />
+							<BUTTON id="hpid" layout="215,3,30,15" text="{xpath.evaluate('hpid/text()')}" textAlign="vCenter" fontSize="13" />
 							<LABEL id="distance" layout="250,3,30,15" text="{xpath.evaluate('distance/text()') * 1000} m" textAlign="vCenter" fontSize="10" />
 							<LABEL id="address" layout="55,20,240,15" text="{xpath.evaluate('dutyAddr/text()')}" textAlign="vCenter" fontSize="10" />
 							<LABEL layout="5,40,50,20" text="운영 시간" fontSize="9"/>
@@ -126,7 +119,7 @@
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
 	<FUNCTION id="search4">
 		<RETURN condition="hpid.text == 0" cmd="device.systemPopup('HPID를 확인하거나 직접 HPID를 입력하세요.')" />
-		<CMD cmd="hpid.text=A1100087"/>
+		<CMD cmd="hpid.text=hpid.text"/>
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?ServiceKey=' + userVariable.serviceKey"/>
 		<CMD cmd="url = url + '&amp;HPID=' + hpid.text"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
