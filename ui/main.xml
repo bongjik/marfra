@@ -44,8 +44,11 @@
 				
 				// datasource = hostpitalList
 				<LIST2 id="hospitalList" layout="0,0,300,280" dataList="//item" img="lightsteelblue" divider="#808080">
+
+					//onClick="function.showMap"
+
 					<LISTLAYOUT>
-						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
+						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" cmd ="device.systemPopup('검색 결과가 없습니다.')">
 							<LABEL id="divName" layout="5,3,50,15" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
 							<LABEL id="name" layout="55,3,160,15" text="{xpath.evaluate('dutyName/text()')}" textAlign="vCenter" fontSize="13" />
 							<BUTTON id="hpid" layout="215,3,30,15" text="{xpath.evaluate('hpid/text()')}" textAlign="vCenter" fontSize="13" onClick="function.search4"/>
@@ -83,6 +86,7 @@
 		<CMD cmd="url = url + '&amp;WGS84_LON=' + longitude.text"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
 		<CMD cmd="xml = file.read(url)" />
+		<CMD cmd="userVariable.hpid=A1100087"/>
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
 		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
 		<CMD cmd="hospitalList.dataSource = xml" />
