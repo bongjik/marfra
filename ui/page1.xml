@@ -1,6 +1,34 @@
-<MOML version="1.0.0">
-<UILAYOUT portrait="640,810">
-<LABEL layout="0,0,640,810" text="PAGE 1" textAlign="center" fontSize="50"
-fontColor="#88AA88" defaultImg="#777799"/>
-</UILAYOUT>
-</MOML>
+<?xml version="1.0" encoding="UTF-8"?>
+	<MOML version="1.1.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.applusform.com/xsd/moml_ui_1.1.8.xsd">
+
+		<THEMES>
+			<THEME element="BUTTON" textColor="#ffffff" defaultImg="#0080ff" pressedImg="#008000" margin="1"/>
+		</THEMES>
+
+		<WINDOW layout="300,240" align="relative">
+				
+				// datasource = hostpitalList
+				<LIST2 id="hospitalList" layout="0,0,300,240" dataList="//item" img="lightsteelblue" divider="#808080">
+					<LISTLAYOUT>
+						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
+							<LABEL id="divName" layout="5,3,50,15" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
+							<LABEL id="name" layout="55,3,160,15" text="{xpath.evaluate('dutyName/text()')}" textAlign="vCenter" fontSize="13" />
+							<LABEL id="hpid" layout="215,3,30,15" text="{xpath.evaluate('hpid/text()')}" textAlign="vCenter" fontSize="13" />
+							<LABEL id="distance" layout="250,3,30,15" text="{xpath.evaluate('distance/text()') * 1000} m" textAlign="vCenter" fontSize="10" />
+							<LABEL id="address" layout="55,20,240,15" text="{xpath.evaluate('dutyAddr/text()')}" textAlign="vCenter" fontSize="10" />
+							<LABEL layout="5,40,50,20" text="진료 시간" fontSize="9"/>
+							<LABEL id="time" layout="55,38,50,20" text="{function.toTime(xpath.evaluate('startTime/text()'))} ~ {function.toTime(xpath.evaluate('endTime/text()'))}" textAlign="vCenter" fontSize="10" />
+							<BUTTON id="map" layout="150,38,50,20" text="지도" onClick="function.showMap"/>
+							<BUTTON id="tel" layout="205,38,90,20" text="{xpath.evaluate('dutyTel1/text()')}" fontSize="10" onClick="appLauncher.openUri('tel:' + caller.text, '')"/>
+						</BUTTON>
+					</LISTLAYOUT>
+				</LIST2>
+				
+				<WINDOW id="detailMap" layout="0,0,300,300" visible="invisible" defaultImg="lightsteelblue" onClick="ignore">
+					<LABEL id="mapTitle" layout="0,0,300,30" textAlign="center" fontSize="15" defaultImg="#e0e0ff"/>
+					<WEBVIEW id="mapWebView" layout="10,30,280,230" controls="none"/>
+					<BUTTON layout="125,265,50,30" text="닫기" onClick="mapWebView.clear; detailMap.visible=false" />
+				</WINDOW>
+			</WINDOW>
+
+	</MOML>
