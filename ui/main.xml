@@ -94,10 +94,9 @@
 	// HPID를 통한 자료요청 부분
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
 	<FUNCTION id="search2">
-		<CMD cmd="HPID.text=A1104353"/>
 		<RETURN condition="HPID.text == 0" cmd="device.systemPopup('HPID를 확인하거나 직접 HPID를 입력하세요.')" />
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?ServiceKey=' + userVariable.serviceKey"/>
-		<CMD cmd="url = url + '&amp;HPID=' + A1104353"/>
+		<CMD cmd="url = url + '&amp;HPID=A1104353'"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
 		<CMD cmd="xml = file.read(url)" />
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml2, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
