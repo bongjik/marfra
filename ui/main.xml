@@ -18,7 +18,7 @@
 
 			<WINDOW align="linear:subCenter">
 				<IMAGE layout="30,30" defaultImg="/res/logo.png" />
-				<LABEL layout="120,30" text="가까운 병원/약국 검색" fontSize="15" textAlign="center|right"/>
+				<LABEL layout="150,30" text="가까운 병원/약국/응급실 검색" fontSize="15" textAlign="center|right"/>
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
@@ -32,7 +32,7 @@
 				<BUTTON layout="100,30" text="현재 위치 확인" onClick="function.findLocation" />
 				<BUTTON layout="60,30" text="병원 검색" onClick="function.search" />
 				<BUTTON layout="60,30" text="약국 검색" onClick="function.search2" />
-				<BUTTON layout="60,30" text="약국 검색" onClick="function.search3" />
+				<BUTTON layout="75,30" text="응급실 검색" onClick="function.search3" />
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter"  img="white">
@@ -124,7 +124,7 @@
 	
 	// HPID를 통한 자료요청 부분
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
-	<FUNCTION id="search3(param1)">
+	<FUNCTION id="search4(param1)">
 		<CMD cmd="hpid.text=param1"/>
 		<RETURN condition="HPID.text==0" cmd="device.systemPopup('HPID를 확인하거나 직접 HPID를 입력하세요.')" />
 		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?ServiceKey=' + userVariable.serviceKey"/>
