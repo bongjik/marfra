@@ -43,18 +43,17 @@
 			<WINDOW layout="300,280" align="relative">
 				
 				// datasource = hostpitalList
-				
 				<LIST2 id="hospitalList" layout="0,0,300,280" dataList="//item" img="lightsteelblue" divider="#808080">
 					<LISTLAYOUT>
 						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
 							<LABEL id="divName" layout="5,3,50,15" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
 							<LABEL id="name" layout="55,3,160,15" text="{xpath.evaluate('dutyName/text()')}" textAlign="vCenter" fontSize="13" />
-							<LABEL id="hpid" layout="215,3,30,15" text="{xpath.evaluate('hpid/text()')}" textAlign="vCenter" fontSize="13" />
+							<BUTTON id="hpid" layout="215,3,30,15" text="{xpath.evaluate('hpid/text()')}" textAlign="vCenter" fontSize="13" onClick="function.search4"/>
 							<LABEL id="distance" layout="250,3,30,15" text="{xpath.evaluate('distance/text()') * 1000} m" textAlign="vCenter" fontSize="10" />
 							<LABEL id="address" layout="55,20,240,15" text="{xpath.evaluate('dutyAddr/text()')}" textAlign="vCenter" fontSize="10" />
 							<LABEL layout="5,40,50,20" text="운영 시간" fontSize="9"/>
 							<LABEL id="time" layout="55,38,50,20" text="{function.toTime(xpath.evaluate('startTime/text()'))} ~ {function.toTime(xpath.evaluate('endTime/text()'))}" textAlign="vCenter" fontSize="10" />
-							<BUTTON id="map" layout="150,38,50,20" text="지도" onClick="function.searchowMap"/>
+							<BUTTON id="map" layout="150,38,50,20" text="지도" onClick="function.showMap"/>
 							<BUTTON id="tel" layout="205,38,90,20" text="{xpath.evaluate('dutyTel1/text()')}" fontSize="10" onClick="appLauncher.openUri('tel:' + caller.text, '')"/>
 						</BUTTON>
 					</LISTLAYOUT>
@@ -68,7 +67,7 @@
 
 			</WINDOW>
 			
-			<BUTTON layout="300,20" text="자료제공 : 국립중앙의료원" fontSize="10" textAlign="center|right" onClick="function.search4"/>
+			<BUTTON layout="300,20" text="자료제공 : 국립중앙의료원" fontSize="10" textAlign="center|right" onClick="ignore"/>
 		</WINDOW>
 
 	</UILAYOUT>
