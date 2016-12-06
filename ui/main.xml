@@ -46,7 +46,7 @@
 				<LABEL id="address" layout="200,30" fontSize="10" textAlign="vCenter" textColor="gray"/>
 			</WINDOW>
 
-			<WINDOW layout="300,240" align="relative">
+			<WINDOW layout="300,300" align="relative">
 				// datasource = hostpitalList
 				<LIST2 id="hospitalList" layout="0,0,300,300" dataList="//item" img="lightsteelblue" divider="#808080">
 					<LISTLAYOUT>
