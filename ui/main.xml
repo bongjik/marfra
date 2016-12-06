@@ -22,9 +22,9 @@
 
 			<WINDOW layout="300,60" align="linear:subCenter">
 				<LABEL layout="40,30" text="진료과목 : " textAlign="center" fontSize="20"/>
-				<SPINNER id="asset" layout="40,0,100,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
+				<SPINNER id="asset" layout="100,30" dataSource="/ui/asset.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
 				<LABEL layout="40,30" text="병원분류 :" textAlign="center" fontSize="20"/> 
-  				<SPINNER id="province" layout="40,30,100,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
+  				<SPINNER id="province" layout="100,30" dataSource="/ui/province.xml" dataList="//item" textPath="@text" valuePath="@value" /> 
 			</WINDOW>
 
 			<WINDOW align="linear:subCenter">
@@ -90,6 +90,7 @@
 		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
 		<CMD cmd="hospitalList.dataSource = xml" />
 	</FUNCTION>
+
 	
 	// HPID를 통한 자료요청 부분
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
