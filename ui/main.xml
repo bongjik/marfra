@@ -117,7 +117,7 @@
 				</LIST2>	
 			
 			<BUTTON layout="300,20" text="자료제공 : 국립중앙의료원" fontSize="10" textAlign="center|right" onClick="ignore"/>
-
+			</WINDOW>	
 		</WINDOW>
 	</UILAYOUT>
 
