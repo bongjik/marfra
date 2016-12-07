@@ -78,7 +78,6 @@
 				</LIST2>
 
 				///<LIST2 id="hospitalListtt" layout="0,0,300,280" visible="invisible" dataList="//item" img="lightsteelblue" divider="#808080">
-
 					<LISTLAYOUT>
 						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
 							<LABEL id="divName" layout="5,3,50,20" text="{xpath.evaluate('dutyDivName/text()')}" textAlign="vCenter" fontSize="10" />
@@ -92,7 +91,6 @@
 						</BUTTON>
 					</LISTLAYOUT>
 				</LIST2>
-
 
 
 				<WINDOW id="detailMap" layout="0,0,300,280" visible="invisible" defaultImg="lightsteelblue" onClick="ignore">
@@ -128,7 +126,8 @@
 
 	//////
 
-	
+
+	<CMD cmd="userVariable.hpid='A1100087'"/>
 
 	// GPS를 통한 자료요청 부분 (병원)
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
@@ -142,6 +141,7 @@
 		<CMD cmd="url = url + '&amp;WGS84_LON=' + longitude.text"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
 		<CMD cmd="xml = file.read(url)" />
+		<CMD cmd="userVariable.hpid=xpath.evaluate(xml, '//resultMsg/text()')"/>
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
 		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
 		<CMD cmd="hospitalList.dataSource = xml" />
@@ -185,7 +185,7 @@
 	</FUNCTION>
 	
 	// HPID를 통한 병원 자료요청 부분
-	<CMD cmd="userVariable.hpid='A1100087'"/>
+	
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
 	<FUNCTION id="search4">
 		<CMD cmd="hospitalList.visible = false" />
@@ -197,10 +197,9 @@
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
 		<CMD cmd="url = url + '&amp;pageSize=50&amp;startPage=1'"/>
 		<CMD cmd="xml2 = file.read(url)" />
-		<CMD cmd="device.systemPopup('된다!')" />
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml2, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml2, '//resultMsg/text()'))"/>
 		<RETURN condition="xpath.evaluateEx(xml2, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
-		<CMD cmd="hospitalList2.dataSource = xml2" />
+		<CMD cmd="detail.dataSource = xml2" />
 		<CMD cmd="detail.visible = true" />
 	</FUNCTION>
 
