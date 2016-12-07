@@ -114,12 +114,11 @@
 								<LABEL id="dutyEryn" layout="50,180,40,20" text="{xpath.evaluate('dutyEryn/text()')}" textAlign="vCenter" fontSize="13" />
 							</BUTTON>
 						</LISTLAYOUT>
-						<BUTTON layout="125,245,50,30" text="닫기" onClick="detail.visible=false; function.search" />
 				</LIST2>	
 			
 			<BUTTON layout="300,20" text="자료제공 : 국립중앙의료원" fontSize="10" textAlign="center|right" onClick="ignore"/>
-		</WINDOW>
 
+		</WINDOW>
 	</UILAYOUT>
 
 	//////
