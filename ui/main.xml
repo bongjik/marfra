@@ -102,21 +102,9 @@
 				</WINDOW>
 
 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-				<LIST2 id="hospitalList2" layout="0,0,300,280" visible="invisible" dataList="//item" img="lightsteelblue" divider="#808080">
-						<LISTLAYOUT>
-							<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff">
-								<LABEL id="dgid" layout="10,30,40,20" text="진료과목:" textAlign="vCenter" fontSize="12"/>
-								<LABEL id="dgidIdName" layout="50,30,240,180" text="{xpath.evaluate('dgidIdName/text()')}" textAlign="vCenter" fontSize="13" />
-								<LABEL id="eryn" layout="10,180,40,20" text="응급실 여부:" textAlign="vCenter" fontSize="12"/>
-								<LABEL id="dutyEryn" layout="50,180,40,20" text="{xpath.evaluate('dutyEryn/text()')}" textAlign="vCenter" fontSize="13" />
-							</BUTTON>
-						</LISTLAYOUT>
-				</LIST2>	
 			
 			<BUTTON layout="300,20" text="자료제공 : 국립중앙의료원" fontSize="10" textAlign="center|right" onClick="ignore"/>
+
 			</WINDOW>	
 		</WINDOW>
 	</UILAYOUT>
