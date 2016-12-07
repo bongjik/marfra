@@ -42,8 +42,12 @@
 
 			<WINDOW layout="300,280" align="relative">
 				
+
+
 				// datasource = hostpitalList
 				<LIST2 id="hospitalList" layout="0,0,300,280" visible="invisible" dataList="//item" img="lightsteelblue" divider="#808080">
+
+					<CMD cmd="userVariable.hpid={xpath.evaluate('//resultMsg/text()')}"/>
 
 					<LISTLAYOUT>
 						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
@@ -77,6 +81,7 @@
 					</LISTLAYOUT>
 				</LIST2>
 
+
 				///<LIST2 id="hospitalListtt" layout="0,0,300,280" visible="invisible" dataList="//item" img="lightsteelblue" divider="#808080">
 					<LISTLAYOUT>
 						<BUTTON layout="0,0,300,60" img="transparent" pressedImg="#80a0ff" onClick="function.showMap">
@@ -101,7 +106,6 @@
 
 
 
-				<WINDOW id="detail" layout="0,0,300,280" visible="invisible" defaultImg="lightsteelblue" onClick="ignore">
 					<LIST2 id="hospitalList2" layout="10,30,280,210" dataList="//item" img="lightsteelblue" divider="#808080">
 						<LABEL id="mapTitle" layout="0,0,300,30" textAlign="center" fontSize="15" defaultImg="#e0e0ff"/>
 							<layout layout="0,0,300,60" img="transparent" pressedImg="#80a0ff">
@@ -111,8 +115,8 @@
 								<LABEL id="dutyEryn" layout="50,180,40,20" text="{xpath.evaluate('dutyEryn/text()')}" textAlign="vCenter" fontSize="13" />
 							</layout>
 					</LIST2>
+					
 					<BUTTON layout="125,245,50,30" text="닫기" onClick="detail.visible=false; function.search" />
-				</WINDOW>
 
 
 
@@ -141,7 +145,6 @@
 		<CMD cmd="url = url + '&amp;WGS84_LON=' + longitude.text"/>
 		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
 		<CMD cmd="xml = file.read(url)" />
-		<CMD cmd="userVariable.hpid=xpath.evaluate(xml, '//resultMsg/text()')"/>
 		<RETURN condition="not string.equals(xpath.evaluateEx(xml, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml, '//resultMsg/text()'))"/>
 		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
 		<CMD cmd="hospitalList.dataSource = xml" />
