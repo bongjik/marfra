@@ -113,7 +113,6 @@
 	// GPS를 통한 자료요청 부분 (병원)
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
 	<FUNCTION id="search">
-		<CMD cmd="detail.visible = false" />
 		<CMD cmd="hospitalListt.visible = false" />
 		<CMD cmd="hospitalListtt.visible = false" />
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
@@ -131,7 +130,6 @@
 	// GPS를 통한 자료요청 부분 (약국)
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
 	<FUNCTION id="search2">
-		<CMD cmd="detail.visible = false" />
 		<CMD cmd="hospitalList.visible = false" />
 		<CMD cmd="hospitalListtt.visible = false" />
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
@@ -149,7 +147,6 @@
 	// GPS를 통한 자료요청 부분 (응급실)
 	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
 	<FUNCTION id="search3">
-		<CMD cmd="detail.visible = false" />
 		<CMD cmd="hospitalList.visible = false" />
 		<CMD cmd="hospitalListt.visible = false" />
 		<RETURN condition="latitude.text == 0 or longitude.text == 0" cmd="device.systemPopup('현위치를 확인하거나 직접 좌표를 입력하세요.')" />
@@ -162,25 +159,6 @@
 		<RETURN condition="xpath.evaluateEx(xml, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
 		<CMD cmd="hospitalListtt.dataSource = xml" />
 		<CMD cmd="hospitalListtt.visible = true" />
-	</FUNCTION>
-	
-	// HPID를 통한 병원 자료요청 부분
-	
-	<CMD cmd="userVariable.serviceKey = 'ttdhRfMYgxJjYAm%2FSbwS5yL%2B50JpVGLJMNxhCxJKLMNX1yrION1fV8bLGMy0mtdkUjGALSE8hcrKSYOmRjTH%2FQ%3D%3D'" />
-	<FUNCTION id="search4">
-		<CMD cmd="hospitalList.visible = false" />
-		<CMD cmd="hospitalListt.visible = false" />
-		<CMD cmd="hospitalListtt.visible = false" />
-		<CMD cmd="url = 'http://openapi.e-gen.or.kr/openapi/service/rest/HsptlAsembySearchService/getHsptlBassInfoInqire?serviceKey=' + userVariable.serviceKey"/>
-		<CMD cmd="url = url + '&amp;HPID' + userVariable.hpid"/>
-		<CMD cmd="url = url + '&amp;DUTY_INF=-&amp;DUTY_MAPIMG=-'"/>
-		<CMD cmd="url = url + '&amp;pageNo=1&amp;numOfRows=100'"/>
-		<CMD cmd="url = url + '&amp;pageSize=50&amp;startPage=1'"/>
-		<CMD cmd="xml2 = file.read(url)" />
-		<RETURN condition="not string.equals(xpath.evaluateEx(xml2, '//resultCode/text()'), '00')" cmd="device.systemPopup(xpath.evaluateEx(xml2, '//resultMsg/text()'))"/>
-		<RETURN condition="xpath.evaluateEx(xml2, '//totalCount/text()') == 0" cmd="device.systemPopup('검색 결과가 없습니다.')"/>
-		<CMD cmd="detail.dataSource = xml2" />
-		<CMD cmd="detail.visible = true" />
 	</FUNCTION>
 
 	// GPS로 현 위치 받아오는 부분
